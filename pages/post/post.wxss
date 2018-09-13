@@ -1,0 +1,9 @@
+/* pages/post/post.wxss */
+
+.upload-img{
+  width: 170rpx;
+  height: 170rpx;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+}
+

@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/found/found",
+    "pages/search/search",
+    "pages/post/post",
+    "pages/lost/lost",
+    "pages/person/person",
+    "pages/more/more",
+    "pages/usermes/usermes",
+    "pages/collection/collection",
+    "pages/aboutUs/aboutUs",
+    "pages/myPost/myPost",
+    "pages/searchResult/searchResult",
+    "pages/updataPost/updataPost",
+    "pages/writeMes/writeMes",
+    "pages/qrMore/qrMore",
+    "pages/administrator/administrator"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2095F1",
+    "navigationBarTitleText": "寻物启事",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#2095F1",
+    "selectedColor": "white",
+    "color": "#54B8FD",
+    "list": [
+      {
+        "pagePath": "pages/found/found",
+        "text": "寻物",
+        "iconPath": "image/leida.png",
+        "selectedIconPath": "image/leida-active.png"
+      },
+      {
+        "pagePath": "pages/lost/lost",
+        "text": "招领",
+        "iconPath": "image/lost.png",
+        "selectedIconPath": "image/lost-active.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "image/search.png",
+        "selectedIconPath": "image/search-active.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "image/person.png",
+        "selectedIconPath": "image/person-active.png"
+      }
+    ]
+  }
+}

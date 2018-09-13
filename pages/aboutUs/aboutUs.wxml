@@ -1,0 +1,15 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<view class='img' data-index="0" bindtap='previewImage'>
+  <image src='../../image/cord.jpg'></image>
+</view>
+<view class="nametext">广金寻物</view>
+<view class='versiontext'>v 1.0.0</view>
+<view class='content'>
+  "广金寻物"是一款用于发布寻物启事和失物招领的小程序。服务于广大大学生，帮助他们找回自己丢失的物品。
+</view>
+<view>
+  <button class='but' bindtap='zan'><text>赞赏</text></button>
+</view>
+<view hidden='{{zanshang}}' class='img' bindtap='previewImage' data-index="1">
+  <image src='../../image/zanshang.jpg'></image>
+</view>

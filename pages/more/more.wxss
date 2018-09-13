@@ -1,0 +1,156 @@
+/* pages/more/more.wxss */
+page{
+  background-color: rgb(244, 244, 244);
+}
+
+.topBlock{
+  padding-left: 35rpx;
+  padding-top: 20rpx;
+  padding-right: 35rpx;
+  background-color: white;
+}
+.title{
+  font-size: 50rpx;
+}
+
+.downOfTitle{
+  font-size: 30rpx;
+  padding-bottom: 10rpx;
+  color: rgb(166, 166, 166);
+  display: flex;
+  justify-content:space-between;
+  border-bottom: 1px solid rgb(242, 242, 242);
+}
+
+.time{
+  display: inline;
+}
+
+.isfind{
+  display: inline;
+  color: green;
+}
+
+.nofind{
+  display: inline;
+  color: red;
+}
+
+.imgBlock{
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  background-color: white;
+}
+
+.imgBlock image{
+  width: 216rpx;
+  height: 240rpx;
+  margin-left: 15rpx;
+}
+
+.contentBlock{
+  background-color: white;
+  margin-top: 15rpx;
+  border-bottom: 1px solid rgb(242, 242, 242);
+}
+
+.content{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 35rpx;
+  color: rgb(134, 134, 134);
+  font-size: 31rpx;
+  border-top: 1px solid rgb(242, 242, 242);
+}
+
+.content-white{
+  font-size: 33rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 35rpx;
+  padding-right: 32rpx;
+  border-top: 1px solid rgb(242, 242, 242);
+  color: rgb(64, 64, 64);
+}
+
+.placeBlock{
+  background-color: white;
+  margin-top: 15rpx;
+  border-bottom: 1px solid rgb(242, 242, 242);
+}
+
+.place{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 35rpx;
+  color: rgb(134, 134, 134);
+  font-size: 31rpx;
+  border-top: 1px solid rgb(242, 242, 242);
+}
+
+.place-white{
+  font-size: 33rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 35rpx;
+  border-top: 1px solid rgb(242, 242, 242);
+  color: rgb(64, 64, 64);
+}
+
+.contactMes{
+  background-color: white;
+  margin-top: 15rpx;
+  border-bottom: 1px solid rgb(242, 242, 242);
+  margin-bottom: 150rpx;
+}
+
+.contact{
+ padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 35rpx;
+  color: rgb(134, 134, 134);
+  font-size: 31rpx;
+  border-top: 1px solid rgb(242, 242, 242);
+}
+
+.contactNum{
+  font-size: 33rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 35rpx;
+  border-top: 1px solid rgb(242, 242, 242);
+  color: rgb(64, 64, 64);
+}
+
+.share{
+  padding-top: 10rpx;
+  padding-bottom: 5rpx;
+  background-color: #2095F1;
+  display: flex;
+  justify-content:space-around;
+  position:fixed; 
+  bottom:0;
+  width: 100%;
+}
+
+.share image{
+  width:53rpx;
+  height: 53rpx;
+}
+
+
+.downOfImg{
+  font-size: 24rpx;
+  color: white;
+  text-align: center;
+}
+
+.share-canvas{
+  width: 700rpx;
+  height: 1000rpx;
+  position: fixed;
+  top:0;
+  background-color: white;
+}

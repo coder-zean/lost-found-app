@@ -1,0 +1,36 @@
+<!--pages/searchResult/searchResult.wxml-->
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+          <view>
+            <view class='container'>
+              <view wx:if="{{searchResult}}">搜索结果为空</view>
+              <view class='white-block' wx:for="{{thingList}}" wx:for-item="item" wx:key="id">
+                <navigator url='../more/more?id={{item.id}}&campus={{campus}}&thingType={{thingType}}' class='navigete'>
+                  <view class='mes'>
+                    <view class='img'>
+                      <image src='{{item.imgSrc1}}' mode='aspectFit'></image>
+                    </view>
+                    <view class='title'>{{item.title}}</view>
+                    <view class='centent'>{{item.subContent}}</view>
+                    <view class='timeAndPlace'>
+                      <view class='timeAndPlace-img'>
+                        <image src='../../image/time.png'></image>
+                      </view>
+                      <text decode="{{true}}"> &nbsp;{{item.time}} &nbsp;&nbsp;&nbsp;</text>
+                      <view class='timeAndPlace-img'>
+                        <image src='../../image/place.png'></image>
+                      </view>
+                      <text decode="{{true}}"> &nbsp;{{item.place}} </text>
+                    </view>
+                  </view>
+                  <view class='send'>></view>
+                </navigator>
+              </view>
+            <view class='push' wx:if="{{push}}">上拉加载更多</view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+

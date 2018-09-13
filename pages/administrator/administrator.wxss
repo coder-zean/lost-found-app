@@ -1,0 +1,2 @@
+/* pages/administrator/administrator.wxss */
+@import "../myPost/myPost.wxss";

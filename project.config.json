@@ -1,0 +1,54 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.2",
+	"appid": "wxb5f49ab212a6ab44",
+	"projectname": "%E4%BC%81%E4%B8%9A%E5%AF%BB%E7%89%A9",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "更新",
+					"pathName": "pages/found/found",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "qrcord",
+					"pathName": "pages/qrMore/qrMore",
+					"query": "scene=6",
+					"scene": "1048"
+				}
+			]
+		}
+	}
+}

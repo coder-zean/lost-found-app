@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "寻物启事",
+  "enablePullDownRefresh":true,
+  "onReachBottomDistance": "45"
+}

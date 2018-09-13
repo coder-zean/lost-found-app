@@ -1,0 +1,45 @@
+<!--pages/person/person.wxml-->
+<view class="mine-wrapper">
+  <view class="avatar-wrapper">
+    <view>
+      <view class="avatar">
+        <image style="border-radius:50%;" src="{{userinfo.avatarUrl ? userinfo.avatarUrl:'../../image/person.png'}}"></image>
+      </view>
+      <view class="text">
+        <text wx:if="{{userinfo.nickName}}">{{userinfo.nickName}}</text>
+        <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="loginBut"> 登录 </button>
+      </view>
+    </view>
+  </view>
+  <view class="list-wrapper">
+    <view class="weui-cells weui-cells_after-title">
+      <block wx:for="{{menuitems}}" wx:key="menu_for">
+        <navigator url="{{item.url}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="{{item.icon}}"></image>
+          </view>
+          <view class="weui-cell__bd">{{item.text}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">{{item.tips}}</view>
+        </navigator>
+      </block>
+      <block>
+        <navigator target="miniProgram" open-type="navigate" app-id="wx8abaf00ee8c3202e" extra-data="{{ extraData }}" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="../../image/feedback.png"></image>
+          </view>
+          <view class="weui-cell__bd">帮助与反馈</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </block>
+      <block wx:if="{{openid==administrator1}}" >
+        <navigator url='../administrator/administrator' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="../../image/feedback.png"></image>
+          </view>
+          <view class="weui-cell__bd">管理员界面</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view>

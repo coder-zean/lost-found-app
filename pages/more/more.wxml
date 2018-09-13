@@ -1,0 +1,67 @@
+<!--pages/more/more.wxml-->
+<view> 
+  <view class='topBlock'>
+    <view class='title'>{{title}}</view>
+    <view class='downOfTitle'>
+      <view class='time'>{{time}}</view>
+      <view wx:if="{{found}}" class='isfind'>已找到</view>
+      <view wx:else class='nofind'>未找到</view>
+    </view>
+  </view>
+  <view class='imgBlock'>
+    <image wx:for="{{imgSrc}}" src='{{item}}' bindtap='previewImg' data-index='{{index}}' mode='aspectFit'></image>
+  </view>
+  <view class='contentBlock'>
+    <view class='content'>详细信息</view>
+    <view class='content-white'>{{content}}</view>
+  </view>
+  <view class="placeBlock">
+    <view class='place'>拾到或丢失地点</view>
+    <view class='place-white'>{{place}}</view>
+  </view>
+  <view class='contactMes'>
+    <view class='contact'>联系信息</view>
+    <view class='contactNum' wx:if="{{phone!=null&&phone!=nullString&&phone!=oString}}">手机号：{{phone}}</view>
+    <view class='contactNum'>{{contact}}：{{contactNum}}</view>
+  </view>
+  <view class='share'>
+    <view class='downOfImg' bindtap='returnIndex'>
+      <image src='../../image/return.png'></image>
+      <view>返回</view>
+    </view>
+    <view wx:if="{{isCollect}}" class='downOfImg'>
+      <image src='../../image/collect-active.png'></image>
+      <view>已收藏</view>
+    </view>
+    <view wx:else class='downOfImg' bindtap='collect'>
+      <image src='../../image/collect.png'></image>
+      <view>收藏</view>
+    </view>
+    <view class='downOfImg' bindtap='sharePic'>
+      <image src='../../image/pic.png'></image>
+      <view>生成图片</view>
+    </view>
+    <!--
+    <view class='downOfImg' bindtap='sharePic'>
+      <image src='../../image/pic.png'></image>
+      <view>生成图片</view>
+    </view>
+    -->
+  </view>
+</view>
+
+<view hidden="{{hidden}}">
+  <canvas canvas-id="share" class='share-canvas' style="width:310px;height:570px"></canvas>
+</view>
+
+<!-- 预览区域 
+<view hidden='{{hidden}}' class='preview' catchtouchmove='true' >
+ <image bindtap='closetype' class='close' src="../../resource/images/gb.png"></image>
+ 
+  <image class='tu' src='{{prurl}}' mode='widthFix' ></image>
+  <button class='resave' type='primary' size='mini' bindtap='share'>重新加载</button>
+  <button class='save' type='primary' size='mini' bindtap='save'>保存分享图</button>
+</view>
+ 
+<image bindtap='share' class='fenx' src="../../resource/images/fx.png"></image>
+ -->
