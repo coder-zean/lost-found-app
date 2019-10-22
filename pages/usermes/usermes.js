@@ -1,16 +1,13 @@
-// pages/usermes/usermes.js
 var app=getApp()
+var util = require('../../utils/util.js');
+var API = require('../../utils/api.js');
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    showTime:0,
     username: null,
     studentNumber: null,
     phone: null,
-    wechat: null,
+    weChat: null,
     qq: null,
     college: null,
     studentClass: null,
@@ -18,94 +15,62 @@ Page({
     nullString:"null"
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    if (app.globalData.openid == null || app.globalData.openid == "" || app.globalData.openid == "null") {
+  onShow: function (options) {
+    if (app.globalData.user == null ) {
       wx.showToast({
         title: '请先登录',
-        icon: "none"
+        icon: "none",
+        duration:1500
       })
-      setTimeout(function () {
-        wx.hideToast()
-      }, 2000)
     } else {
       this.getUserMesRequest()
     }
   },
-
+  //下拉刷新
+  onPullDownRefresh: function () {
+    this.onLoad();
+  },
+  //获取用户基本信息
   getUserMesRequest:function(){
     var that=this;
-    wx.request({
-      url: 'https://www.wubaotop.cn/personal/getUserMes',
-      data: {
-        userId: app.globalData.openid
-      },
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          username: res.data.username,
-          studentNumber: res.data.studentNumber,
-          phone: res.data.phone,
-          wechat: res.data.wechat,
-          qq: res.data.qq,
-          college: res.data.college,
-          studentClass: res.data.studentClass,
-          grade: res.data.grade
-        })
-      },
-      fail: function () {
-        wx.showToast({
-          title: '获取信息失败',
-          icon:"none"
-        })
-        setTimeout(function(){
-          wx.hideToast()
-        },2000)
-      }
+    wx.showLoading({
+      title: "加载中...",
     })
-  },
-  
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    var count=this.data.showTime
-    this.setData({
-      showTime:count+1
-    })
-    if(this.data.showTime>1){
-      wx.startPullDownRefresh({
+    util.request(API.UserMsgUrl, {
+      userId: app.globalData.user.userId
+    }).then(function(res){
+      that.setData({
+        username: res.username,
+        studentNumber: res.studentNumber,
+        phone: res.phone,
+        weChat: res.weChat,
+        qq: res.qq,
+        college: res.college,
+        studentClass: res.studentClass,
+        grade: res.grade
       })
-    }
+      wx.hideLoading()
+    }).catch(function(err){
+      wx.hideLoading()
+      util.showErrModal()
+    })
   },
-
   //跳转至完善信息页
   toWriteMes:function(){
-    if (app.globalData.openid == null || app.globalData.openid == "" || app.globalData.openid == "null") {
+    if (app.globalData.user == null ) {
       wx.showToast({
         title: '请先登录',
-        icon: "none"
+        icon: "none",
+        duration:1500
       })
-      setTimeout(function () {
-        wx.hideToast()
-      }, 2000)
     } else {
       wx.navigateTo({
         url: '../writeMes/writeMes?username='+this.data.username+'&studentNumber='+this.data.studentNumber
-        +'&phone='+this.data.phone+'&wechat='+this.data.wechat+"&qq="+this.data.qq+"&college="+this.data.college
+        +'&phone='+this.data.phone+'&weChat='+this.data.weChat+"&qq="+this.data.qq+"&college="+this.data.college
         +'&grade='+this.data.grade+'&studentClass='+this.data.studentClass
       })
     }
   },
-  
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    this.onLoad();
-  }
+
 
 })

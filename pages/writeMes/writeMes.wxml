@@ -1,4 +1,3 @@
-<!--pages/writeMes/writeMes.wxml-->
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
     <view class="page__bd">
         <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{showTopMes}}</view>
@@ -43,8 +42,8 @@
                     <view class="weui-label">微信号</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input wx:if="{{wechat==nullString}}" class="weui-input" placeholder="请输入微信号" name="wechat"/>
-                    <input wx:else class="weui-input" placeholder="请输入微信号" name="wechat" value='{{wechat}}'/>
+                    <input wx:if="{{weChat==nullString}}" class="weui-input" placeholder="请输入微信号" name="weChat"/>
+                    <input wx:else class="weui-input" placeholder="请输入微信号" name="weChat" value='{{weChat}}'/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
@@ -91,7 +90,7 @@
         </view>
         <view class="weui-cells__tips">填写班级时，请带上系别，例：精算4班</view>
         <view class="weui-btn-area">
-            <button class="weui-btn" type="primary" formType="submit">确定</button>
+            <button class="weui-btn gre-but"  formType="submit">确定</button>
         </view>
         </form>
     </view>

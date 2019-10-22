@@ -7,3 +7,12 @@
   margin-left: 10rpx;
 }
 
+.red-font{
+  color: red;
+}
+
+.gre-but{
+  background-color: #0CDFD7;
+  color: white;
+}
+

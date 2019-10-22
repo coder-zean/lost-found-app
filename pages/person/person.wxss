@@ -1,7 +1,7 @@
 /* pages/person/person.wxss */
 
 .avatar-wrapper {
-  background: #1b82d1;
+  background: #0CDFD7;
   padding: 25px 0;
 }
 
@@ -11,13 +11,14 @@
 }
 
 .avatar-wrapper .avatar image {
-  width: 200rpx;
-  height: 200rpx;
+  width: 150rpx;
+  height: 150rpx;
 }
 
 .avatar-wrapper .text {
   text-align: center;
   color: #fff;
+  font-size: 35rpx;
 }
 
 .weui-cell__hd image {
@@ -39,4 +40,52 @@
 .loginBut{
   width: 300rpx;
   height: 100rpx;
+}
+
+.under-green{
+  width: 90%;
+  margin: 25rpx auto;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  border: 2rpx #0CDFD7 solid;
+  border-radius: 10rpx;
+  box-shadow:1px 1px 1px #0CDFD7;
+}
+
+.flex-view{
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-text{
+  font-size: 30rpx;
+  color: #333;
+}
+
+.flex-view button{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rpx;
+}
+
+.flex-view button::after{
+  border: none;
+}
+
+.flex-view image{
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.img-view{
+  height: 55rpx;
+  padding: 0rpx;
+}
+
+.flex-view navigator{
+  display: block;
+  margin-left: 26rpx;
+  margin-right: 26rpx;
 }

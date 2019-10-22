@@ -51,5 +51,13 @@ page{
 }
 
 .but-mar{
+  margin-top: 20rpx;
   margin-bottom: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.gre-but{
+  background-color: #0CDFD7;
+  color: white;
 }

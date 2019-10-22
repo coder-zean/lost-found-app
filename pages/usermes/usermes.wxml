@@ -23,9 +23,9 @@
     </view>
     <view class='mes mes-bottom'>
       <view class='mes-name'>微信</view>
-      <view class='mes-value' wx:if="{{wechat==null}}">未填写</view>
-      <view class='mes-value' wx:elif="{{wechat.length==0}}">未填写</view>
-      <view class='mes-value' wx:else>{{wechat}}</view>
+      <view class='mes-value' wx:if="{{weChat==null}}">未填写</view>
+      <view class='mes-value' wx:elif="{{weChat.length==0}}">未填写</view>
+      <view class='mes-value' wx:else>{{weChat}}</view>
     </view>
     <view class='mes'>
       <view class='mes-name'>QQ号</view>
@@ -61,5 +61,5 @@
       <view class='statement-value'>在此保证所有的信息都不会泄露出去。<text>绑定账号信息后，若出现疑似你的物品，小程序能更加精准的进行通知。</text></view>
     </view>
   </view>
-  <button class="weui-btn but-mar" type="primary" bindtap='toWriteMes'>修改完善信息</button>
+  <button class="but-mar gre-but" bindtap='toWriteMes'>修改完善信息</button>
 </view>

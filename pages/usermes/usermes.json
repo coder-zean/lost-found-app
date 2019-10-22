@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "账号信息",
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": "45"
+  "onReachBottomDistance": 45
 }

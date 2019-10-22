@@ -1,28 +1,28 @@
 <!--pages/myPost/myPost.wxml-->
 <view class="page">
-    <view class="page__bd">
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">我的帖子</view>
-            <view class="weui-panel__bd" wx:for="{{thingList}}" wx:for-index="index" wx:for-item="item">
-                <navigator url="../more/more?id={{item.id}}&campus={{item.campus}}&thingType={{item.thingType}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{item.imgSrc1}}" mode='aspectFit' />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">{{item.title}}</view>
-                        <view class="weui-media-box__desc">{{item.content}}</view>
-                    </view>
-                </navigator>
-                <view class='butDownOfCon'>
-                  <view class='butInDown redBut' bindtap='openConfirm' data-index="{{index}}" data-id='{{item.id}}'>删除帖子</view>
-                  <view class='butInDown yellowBut' bindtap='toUpdataPost' data-thing='{{item}}'>修改帖子</view>
-                  <view class='butInDown greenBut' bindtap='haveFound' data-id='{{item.id}}'>完成帖子</view>
-                </view>
-                <view class='grey'></view>
-            </view>
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">我的帖子</view>
+      <view class="weui-panel__bd" wx:for="{{thingList}}" wx:for-index="index" wx:for-item="item">
+        <navigator url="../more/more?id={{item.id}}&campus={{item.campus}}&thingType={{item.thingType}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{item.imgSrc1}}" mode='aspectFit' />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{item.title}}</view>
+            <view class="weui-media-box__desc">{{item.content}}</view>
+          </view>
+        </navigator>
+        <view class='butDownOfCon'>
+          <view class='butInDown redBut' bindtap='openConfirm' data-index="{{index}}" data-id='{{item.id}}'>删除帖子</view>
+          <view class='butInDown yellowBut' bindtap='toUpdataPost' data-thing='{{item}}'>修改帖子</view>
+          <view class='butInDown greenBut' bindtap='haveFound' data-id='{{item.id}}'>完成帖子</view>
         </view>
-        <view class='float-button' bindtap='post'>
-          <image class='float-button' src='../../image/float-post.png'></image>
-        </view>
+        <view class='grey'></view>
+      </view>
     </view>
+    <view class='float-button' bindtap='post'>
+      <image class='float-button' src='../../image/float-post.png'></image>
+    </view>
+  </view>
 </view>

@@ -206,3 +206,7 @@ background-color:rgba(200, 200, 200, 0.1);
   color: #09bb07;
   white-space: nowrap;
 }
+
+.gre-text{
+  color: #0CDFD7;
+}

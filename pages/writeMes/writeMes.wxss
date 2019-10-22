@@ -1,1 +1,5 @@
 /* pages/writeMes/writeMes.wxss */
+.gre-but{
+  background-color: #0CDFD7;
+  color: white;
+}

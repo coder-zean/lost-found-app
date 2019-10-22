@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "我的帖子",
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": "45"
+  "onReachBottomDistance": 45
 }

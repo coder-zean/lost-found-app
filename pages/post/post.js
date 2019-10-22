@@ -5,7 +5,6 @@ Page({
   data: {
     showTopTips: false,
     showTopMsg:"",      //错误信息
-
     avatarUrl: [],      //图片地址
     contentCount: 0,    //正文字数
     imgRealPath:[],     //存储图片地址
@@ -29,14 +28,14 @@ Page({
     content:"",
     phone:"",
     contactNum:"",
-    wechat:"",
+    weChat:"",
     qq:"",
     disabled:false    //设置按钮的禁用、启用
 
   },
 
   onLoad:function(){
-    if (app.globalData.openid == null) {
+    if (app.globalData.user == null) {
       wx.showToast({
         title: '请先登录',
         icon: "none"
@@ -47,17 +46,19 @@ Page({
     }else{
       var that = this;
       wx.request({
-        url: 'https://www.wubaotop.cn/personal/getUserMes',
+        url: 'https://www.wubaotop.cn/lostAppUser/getUser',
         data: {
-          userId: app.globalData.openid
+          userId: app.globalData.user.userId
         },
         success: function (res) {
-          console.log(res.data)
-          that.setData({
-            wechat: res.data.wechat,
-            qq: res.data.qq
-          })
-          var weixin = that.data.wechat
+          console.log(res.data.data)
+          if(res.data.code==1){
+            that.setData({
+              weChat: res.data.data.weChat,
+              qq: res.data.data.qq
+            })
+          }
+          var weixin = that.data.weChat
           var tqq=that.data.qq
           if (weixin != null && weixin != "" &&  weixin !="null"){
             that.setData({
@@ -90,19 +91,6 @@ Page({
   onPullDownRefresh: function () {
     this.onLoad()
   },
-
-  
-  //判断发布类型为寻物还是招领
-  radioChange: function (e) {
-    console.log('发帖类型radio发生change事件，携带value值为：', e.detail.value);
-    var radioItems = this.data.radioItems;
-    for (var i = 0, len = radioItems.length; i < len; ++i) {
-      radioItems[i].checked = radioItems[i].value == e.detail.value;
-    }
-    this.setData({
-      radioItems: radioItems
-    });
-  },
  
   //电话号码前缀
   bindCountryCodeChange: function (e) {
@@ -110,14 +98,6 @@ Page({
 
     this.setData({
       countryCodeIndex: e.detail.value
-    })
-  },
-
-  //校区选择
-  bindCountryChange: function (e) {
-    console.log('校区选择发生选择改变，携带值为', e.detail.value);
-    this.setData({
-      countryIndex: e.detail.value
     })
   },
 
@@ -133,16 +113,12 @@ Page({
   chooseImg:function(e){
     var that = this;
     wx.chooseImage({
-      // 设置最多可以选择的图片张数，默认9,如果我们设置了多张,那么接收时就不在是单个变量了,
       count: 3,
-      sizeType: ['original', 'compressed'], // original 原图，compressed 压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
       success: function (res) {
         // 获取成功,将获取到的地址赋值给临时变量
         var tempFilePaths = res.tempFilePaths;
         console.log(tempFilePaths);
         that.setData({
-          //将临时变量赋值给已经在data中定义好的变量
           avatarUrl: tempFilePaths
         })
       },
@@ -181,8 +157,9 @@ Page({
       filePath: data.path[i],
       name: 'img',
       success: (res) => {
-        if (res.statusCode == 200) {
-          that.data.imgRealPath.push(res.data);
+        var realData=JSON.parse(res.data)
+        if (realData.code == 1) {
+          that.data.imgRealPath.push(realData.data);
           success++;                    //图片上传成功，图片上传成功的变量+1
           }else{
             that.data.imgRealPath.push("null");
@@ -223,7 +200,6 @@ Page({
               wx.hideToast()
             },1500)
           }
-          
         } else {//若图片还没有传完，则继续调用函数
           console.log(i);
           data.i = i;
@@ -239,66 +215,94 @@ Page({
   formRequest:function(e){
     var that=this
     var content = e.detail.value.content;
-    //对内容进行切割
-    var subContent = content.substring(0, 52) + "......";
-    var openid = app.globalData.openid
-    console.log(subContent);
-    console.log(openid);
-    //将表单数据提交给服务器
-    wx.request({
-      url: 'https://www.wubaotop.cn/upload/form',
-      data: {
-        userId: openid,                                 //用户的openid，也就是唯一标识
-        title: e.detail.value.title,                    //标题
-        place: e.detail.value.place,                    //地点
-        content: content,                               //内容
-        subContent: subContent,                         //内容切割，用于展示在首页
-        time: util.formatTime(new Date()),              //时间
-        phone: e.detail.value.phone,                    //手机号码
-        contactType: e.detail.value.contactType,        //联系方式
-        contactNum: e.detail.value.contactNum,          //联系号码
-        thingType: e.detail.value.thingType,            //物品丢失类型，招领还是寻物
-        campus: e.detail.value.campus,                  //掉落校区
-        formId: e.detail.formId,                        //上传formId
-        imgSrc: that.data.imgRealPath                     //物品图片链接
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },
-      success: function (res) {
-        wx.hideLoading()
+    var thingType=0
+    var campus=0
+    wx.showToast({
+      title: '请选择校区',
+      icon: "none",
+      duration: 1000
+    })
+    wx.showActionSheet({
+      itemList: ['肇庆校区', '广州校区'],
+      success(res) {
+        campus=res.tapIndex
         wx.showToast({
-          title: '上传成功',
-          icon: "success"
+          title: '请选择类型',
+          icon: "none",
+          duration: 1000
         })
-        setTimeout(function () {
-          wx.hideLoading()
-        }, 2000)
-        console.log(res.data);
-        that.setData({
-          title: "",
-          place: "",
-          content: ""
+        wx.showActionSheet({
+          itemList: ['寻物启事', '失物招领'],
+          success(res1) {
+            thingType=res1.tapIndex
+            //将表单数据提交给服务器
+            wx.request({
+              url: 'https://www.wubaotop.cn/lostModel/add',
+              data: {
+                userId: app.globalData.user.userId,                          
+                title: e.detail.value.title,                    //标题
+                place: e.detail.value.place,                    //地点
+                content: content,                               //内容
+                phone: e.detail.value.phone,                    //手机号码
+                contactType: e.detail.value.contactType,        //联系方式
+                contactNum: e.detail.value.contactNum,          //联系号码
+                thingType: thingType,            //物品丢失类型，招领还是寻物
+                campus: campus,                  //掉落校区
+                formId: e.detail.formId,         //上传formId
+                imgSrc: that.data.imgRealPath    //物品图片链接
+              },
+              header: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+              },
+              success: function (res) {
+                console.log(res.data);
+                if(res.data.code==1){
+                  wx.hideLoading()
+                  wx.showToast({
+                    title: '上传成功',
+                    icon: "success"
+                  })
+                  that.setData({
+                    title: "",
+                    place: "",
+                    content: ""
+                  })
+                }else{
+                  wx.hideLoading()
+                  wx.showModal({
+                    title: '上传失败',
+                    content: '服务器出现异常，请重试并向管理人员反馈，谢谢',
+                    showCancel:false
+                  })
+                }
+              },
+              fail: function () {
+                wx.hideLoading()
+                wx.showModal({
+                  title: '上传失败',
+                  content: '网络出现异常，请检查网络并重试',
+                  showCancel:false
+                })
+              },
+              complete: function () {
+                that.setData({
+                  avatarUrl: [],
+                  imgRealPath: [],
+                  disabled: false
+                })
+              }
+            })
+          },
+          fail(res) {
+            console.log(res.errMsg)
+          }
         })
       },
-      fail: function () {
-        console.log("上传失败")
-        wx.showToast({
-          title: '上传失败',
-          icon: "none"
-        })
-        setTimeout(function () {
-          wx.hideLoading()
-        }, 2000)
-      },
-      complete: function () {
-        that.setData({
-          avatarUrl: [],
-          imgRealPath: [],
-          disabled: false
-        })
+      fail(res) {
+        console.log(res.errMsg)
       }
     })
+
   },
 
 
@@ -306,7 +310,7 @@ Page({
   formSubmit:function(e){
     console.log(e)
     var that=this;
-    if (app.globalData.openid == null){
+    if (app.globalData.user == null){
       that.setData({
         showTopTips: true,
         showTopMsg: "请先登录"
@@ -378,7 +382,7 @@ Page({
       })
       //上传图片并将表单数据提交
       that.uploadimg({
-        url:"https://www.wubaotop.cn/upload/image",
+        url:"https://www.wubaotop.cn/lostModel/upload",
         path: that.data.avatarUrl,
         formEvent:e
       });   

@@ -18,26 +18,26 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#2095F1",
+    "navigationBarBackgroundColor": "#0CDFD7",
     "navigationBarTitleText": "寻物启事",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "backgroundColor": "#2095F1",
-    "selectedColor": "white",
-    "color": "#54B8FD",
+    "backgroundColor": "white",
+    "selectedColor": "#0CDFD7",
+    "color": "#e6e6e6",
     "list": [
       {
         "pagePath": "pages/found/found",
-        "text": "寻物",
-        "iconPath": "image/leida.png",
-        "selectedIconPath": "image/leida-active.png"
+        "text": "广州",
+        "iconPath": "image/gz.png",
+        "selectedIconPath": "image/gz-active.png"
       },
       {
         "pagePath": "pages/lost/lost",
-        "text": "招领",
-        "iconPath": "image/lost.png",
-        "selectedIconPath": "image/lost-active.png"
+        "text": "肇庆",
+        "iconPath": "image/zq.png",
+        "selectedIconPath": "image/zq-active.png"
       },
       {
         "pagePath": "pages/search/search",
@@ -52,5 +52,9 @@
         "selectedIconPath": "image/person-active.png"
       }
     ]
-  }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx8abaf00ee8c3202e"
+  ],
+  "sitemapLocation": "sitemap.json"
 }

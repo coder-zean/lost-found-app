@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "管理员界面",
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": "45"
+  "onReachBottomDistance": 45
 }

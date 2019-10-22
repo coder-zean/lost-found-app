@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "搜索结果",
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": "45"
+  "onReachBottomDistance": 45
 }

@@ -1,1 +1,2 @@
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
 <include src="../found/found.wxml" />

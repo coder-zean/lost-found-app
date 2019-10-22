@@ -127,7 +127,7 @@ page{
 .share{
   padding-top: 10rpx;
   padding-bottom: 5rpx;
-  background-color: #2095F1;
+  background-color: #0CDFD7;
   display: flex;
   justify-content:space-around;
   position:fixed; 
@@ -153,4 +153,38 @@ page{
   position: fixed;
   top:0;
   background-color: white;
+}
+
+
+.bg {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter: alpha(opacity=70);
+}
+
+.bg .share-text1{
+  color: white;
+  position: absolute;
+  top: 30rpx;
+  text-align: center;
+  right: 40rpx;
+}
+
+.bg .share-text2{
+  color: white;
+  position: absolute;
+  bottom: 130rpx;
+  right: 40rpx;
+  text-align: center;
+}
+
+.none-display{
+  display: none;
 }

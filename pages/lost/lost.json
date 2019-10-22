@@ -1,5 +1,7 @@
 {
-  "navigationBarTitleText": "失物招领",
+  "navigationBarTitleText": "肇庆校区",
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": "45"
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#0CDFD7",
+  "onReachBottomDistance": 45
 }

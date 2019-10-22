@@ -1,70 +1,50 @@
-<!--found.wxml-->
-<view class="page">
-  <view class='bule-background navblock'>
-    <view wx:for="{{tabs}}" class='tab {{activeIndex==index?"tabon":""}}' data-id='{{index}}' bindtap='tabClick'>{{item}}</view>
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
+<scroll-view scroll-x class="nav text-center" style='background-color:#0CDFD7;color:white;'>
+  <view class="cu-item {{0==activeIndex?'text-white cur':''}}" bindtap='tabSelect' data-id="0">
+    <text class='icon-camerafill'></text> 寻物启示
   </view>
-  <view hidden="{{activeIndex != 0}}">
-    <view class='container'>
-      <view class='white-block' wx:for="{{zqthingList}}" wx:key="id">
-        <navigator url='../more/more?id={{item.id}}' class='navigete'>
-          <view class='mes'>
-            <view class='img'>
-              <image src='{{item.imgSrc1}}' mode='aspectFit'></image>
-            </view>
-            <view class='title'>{{item.title}}</view>
-            <view class='centent'>{{item.subContent}}</view>
-            <view class='timeAndPlace'>
-              <view class='timeAndPlace-img'>
-                <image src='../../image/time.png'></image>
-              </view>
-              <text decode="{{true}}"> &nbsp;{{item.time}} &nbsp;&nbsp;&nbsp;</text>
-              <view class='timeAndPlace-img'>
-                <image src='../../image/place.png'></image>
-              </view>
-              <text decode="{{true}}" class='oneline'> &nbsp;{{item.place}} </text>
-            </view>
+  <view class="cu-item {{1==activeIndex?'text-white cur':''}}" bindtap='tabSelect' data-id="1">
+    <text class='icon-upstagefill'></text> 失物招领
+  </view>
+</scroll-view>
+<view hidden="{{activeIndex!= 0}}">
+  <view class="cu-card article">
+    <view wx:for="{{xwthingList}}" wx:key class="cu-item shadow" bindtap='navToMore' data-id='{{item.id}}'>
+      <view class="title">{{item.title}}</view>
+      <view class="content">
+        <image wx:if="{{item.imgSrc1!=null}}" src="{{item.imgSrc1}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content' style='word-break:break-all'>{{item.content}}</view>
+          <view>
           </view>
-          <view class='send'>></view>
-        </navigator>
+        </view>
       </view>
-      <view class='push' wx:if="{{zqpush}}">上拉加载更多</view>
-      <view class='push' wx:else>已无更多信息</view>
+      <view class='l-time'>{{dateUtil.dateFormat(item.createTime)}}</view>
     </view>
+    <view class='push' wx:if="{{xwpush}}">上拉加载更多</view>
+    <view class='push' wx:if="{{!xwpush}}">已无更多信息</view>
   </view>
-  <view hidden="{{activeIndex != 1}}">
-    <view class='container'>
-      <view class='white-block' wx:for="{{gzthingList}}" wx:key="id">
-        <navigator url='../more/more?id={{item.id}}' class='navigete'>
-          <view class='mes'>
-            <view class='img'>
-              <image src='{{item.imgSrc1}}' mode='aspectFit'></image>
-            </view>
-            <view class='title'>{{item.title}}</view>
-            <view class='centent'>{{item.subContent}}</view>
-            <view class='timeAndPlace'>
-              <view class='timeAndPlace-img'>
-                <image src='../../image/time.png'></image>
-              </view>
-              <text decode="{{true}}"> &nbsp;{{item.time}} &nbsp;&nbsp;&nbsp;</text>
-              <view class='timeAndPlace-img'>
-                <image src='../../image/place.png'></image>
-              </view>
-              <text decode="{{true}}" class='oneline'> &nbsp;{{item.place}} </text>
-            </view>
-          </view>
-          <view class='send'>></view>
-        </navigator>
-      </view>
-      <view class='push' wx:if="{{gzpush}}">上拉加载更多</view>
-      <view class='push' wx:else>已无更多信息</view>
-    </view>
-  </view>
-  <view class='float-button' bindtap='post'>
-    <image class='float-button' src='../../image/float-post.png'></image>
-  </view>             
 </view>
 
+<view hidden="{{activeIndex!= 1}}">
+  <view class="cu-card article">
+    <view wx:for="{{swthingList}}" wx:key class="cu-item shadow" bindtap='navToMore' data-id='{{item.id}}'>
+      <view class="title">{{item.title}}</view>
+      <view class="content">
+        <image wx:if="{{item.imgSrc1!=null}}" src="{{item.imgSrc1}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content' style='word-break:break-all'>{{item.content}}</view>
+          <view>
+          </view>
+        </view>
+      </view>
+      <view class='l-time'>{{dateUtil.dateFormat(item.createTime)}}</view>
+    </view>
+    <view class='push' wx:if="{{swpush}}">上拉加载更多</view>
+    <view class='push' wx:if="{{!swpush}}">已无更多信息</view>
+  </view>
+</view>
 
-
-
-  
+<view class='float-button' bindtap='post'>
+    <image class='float-button' src='../../image/float-post.png'></image>
+</view>             
