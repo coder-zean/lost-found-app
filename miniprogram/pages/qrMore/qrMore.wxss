@@ -1,0 +1,2 @@
+/* pages/qrMore/qrMore.wxss */
+@import "../more/more.wxss";

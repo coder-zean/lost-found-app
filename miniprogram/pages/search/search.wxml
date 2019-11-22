@@ -1,0 +1,42 @@
+<view class="cu-bar search bg-white">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search" bindinput="wxSearchInput"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-orange shadow-blur round" bindtap="wxSearchConfirm">搜索</button>
+  </view>
+</view>
+
+<view class="wxSearch" style="margin-top:20rpx;">
+
+  <view class="wxSearchInner">
+    <view class="cu-bar bg-white">
+      <view class="action">
+        <text class="icon-titles text-orange"></text>
+        <text class="text-xl text-bold">搜索范围</text>
+      </view>
+    </view>
+    <view class='searchScopePicker'>
+      <picker mode="multiSelector" value="{{scopeIndex}}" range="{{scope}}" bindchange='bindMultiPickerChange'>
+        <view class="scopePicBlock">
+          <text decode="{{true}}">{{scope[0][scopeIndex[0]]}}:{{scope[1][scopeIndex[1]]}}</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="wxSearchKey" style="display:{{wxSearchData.value.length>0 ? 'none':'block'}}">
+      <view class="cu-bar bg-white">
+        <view class="action">
+          <text class="icon-titles text-orange"></text>
+          <text class="text-xl text-bold">搜索热点</text>
+        </view>
+      </view>
+      <view class="wxSearchKeyList">
+        <block wx:for="{{wxSearchData.hotKeys}}" wx:key>
+          <view class="wxSearchKeyItem" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

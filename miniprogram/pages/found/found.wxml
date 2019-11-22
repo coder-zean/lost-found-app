@@ -1,0 +1,56 @@
+<view class="bg {{show?'':'none-display'}}" bindtap='hideview'>
+  <view class='share-text1' style='color:white'>
+    <view>点击右上角三个小点点，</view>
+    <view>可以分享给你的好朋友哦</view>
+  </view>
+</view>
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
+<scroll-view scroll-x class="nav text-center" style='background-color:#f37b1d;color:white;'>
+  <view class="cu-item {{0==activeIndex?'text-white cur':''}}" bindtap='tabSelect' data-id="0">
+    <text class='icon-camerafill'></text> 寻物启示
+  </view>
+  <view class="cu-item {{1==activeIndex?'text-white cur':''}}" bindtap='tabSelect' data-id="1">
+    <text class='icon-upstagefill'></text> 失物招领
+  </view>
+</scroll-view>
+<view hidden="{{activeIndex!= 0}}">
+  <view class="cu-card article">
+    <view wx:for="{{xwthingList}}" wx:key class="cu-item shadow" bindtap='navToMore' data-id='{{item.id}}'>
+      <view class="title">{{item.title}}</view>
+      <view class="content">
+        <image wx:if="{{item.imgSrc1!=null}}" src="{{item.imgSrc1}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content' style='word-break:break-all'>{{item.content}}</view>
+          <view>
+          </view>
+        </view>
+      </view>
+      <view class='l-time'>{{dateUtil.dateFormat(item.createTime)}}</view>
+    </view>
+    <view class='push' wx:if="{{xwpush}}">上拉加载更多</view>
+    <view class='push' wx:if="{{!xwpush}}">已无更多信息</view>
+  </view>
+</view>
+
+<view hidden="{{activeIndex!= 1}}">
+  <view class="cu-card article">
+    <view wx:for="{{swthingList}}" wx:key class="cu-item shadow" bindtap='navToMore' data-id='{{item.id}}'>
+      <view class="title">{{item.title}}</view>
+      <view class="content">
+        <image wx:if="{{item.imgSrc1!=null}}" src="{{item.imgSrc1}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content' style='word-break:break-all'>{{item.content}}</view>
+          <view>
+          </view>
+        </view>
+      </view>
+      <view class='l-time'>{{dateUtil.dateFormat(item.createTime)}}</view>
+    </view>
+    <view class='push' wx:if="{{swpush}}">上拉加载更多</view>
+    <view class='push' wx:if="{{!swpush}}">已无更多信息</view>
+  </view>
+</view>
+
+<view class='float-button' bindtap='post'>
+    <image class='float-button' src='../../image/float-post.png'></image>
+</view>             

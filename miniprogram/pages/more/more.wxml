@@ -1,0 +1,59 @@
+<!--pages/more/more.wxml-->
+<view class="bg {{show?'':'none-display'}}" bindtap='hideview'>
+  <view class='share-text1' style='color:white'>
+    <view>点击右上角三个小点点，</view>
+    <view>可以分享给你的好朋友哦</view>
+  </view>
+  <view class='share-text2'>
+    <view>点击下方生成图片，</view>
+    <view>可以生成图片分享</view>
+  </view>
+</view>
+<view>
+  <view class='topBlock'>
+    <view class='title'>{{model.title}}</view>
+    <view class='downOfTitle'>
+      <view class='time'>{{time}}</view>
+      <view wx:if="{{model.isFound==1}}" class='isfind'>已找到</view>
+      <view wx:if="{{model.isFound!=1}}" class='nofind'>未找到</view>
+    </view>
+  </view>
+  <view class='imgBlock' wx:if="{{imgSrc.length!=0}}">
+    <image wx:for="{{imgSrc}}" wx:key src='{{item}}' bindtap='previewImg' data-index='{{index}}' mode='aspectFit'></image>
+  </view>
+  <view class='contentBlock'>
+    <view class='content'>详细信息</view>
+    <view class='content-white'>{{model.content}}</view>
+  </view>
+  <view class="placeBlock">
+    <view class='place'>拾到或丢失地点</view>
+    <view class='place-white'>{{model.place}}</view>
+  </view>
+  <view class='contactMes'>
+    <view class='contact'>联系信息</view>
+    <view class='contactNum' wx:if="{{phone!=null&&phone!=nullString&&phone!=oString}}">手机号：{{model.phone}}</view>
+    <view class='contactNum'>{{model.contactType==1?"QQ号":"微信号"}}：{{model.contactNum}}</view>
+  </view>
+  <view class='share'>
+    <view class='downOfImg' bindtap='returnIndex'>
+      <image src='../../image/return.png'></image>
+      <view>返回</view>
+    </view>
+    <view wx:if="{{isCollect}}" class='downOfImg'>
+      <image src='../../image/collect-active.png'></image>
+      <view>已收藏</view>
+    </view>
+    <view wx:else class='downOfImg' bindtap='collect'>
+      <image src='../../image/collect.png'></image>
+      <view>收藏</view>
+    </view>
+    <view class='downOfImg' bindtap='sharePic'>
+      <image src='../../image/pic.png'></image>
+      <view>生成图片</view>
+    </view>
+  </view>
+</view>
+
+<view hidden="{{hidden}}">
+  <canvas canvas-id="share" class='share-canvas' style="width:310px;height:570px"></canvas>
+</view>

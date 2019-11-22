@@ -1,0 +1,29 @@
+<!--pages/person/person.wxml-->
+<view class="mine-wrapper">
+  <view class="avatar-wrapper">
+    <view>
+      <view class="avatar">
+        <image style="border-radius:50%;" src="{{userinfo.avatarUrl ? userinfo.avatarUrl:'../../image/user.png'}}"></image>
+      </view>
+      <view class="text">
+        <text wx:if="{{userinfo.nickName}}">{{userinfo.nickName}}</text>
+        <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="cu-btn bg-white lg loginBut">获取头像</button>
+        <!-- <button  class="loginBut"> 登录 </button> -->
+      </view>
+    </view>
+  </view>
+  <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}" style='margin-top:25rpx;'>
+    <view class="cu-item {{menuArrow?'arrow':''}}" wx:for="{{menuItems}}" wx:key>
+      <navigator class='content' hover-class='none' url='{{item.url}}'>
+        <image src='{{item.icon}}' class='png' mode='aspectFit'></image>
+        <text class='text-grey'>{{item.text}}</text>
+      </navigator>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <navigator target="miniProgram" open-type="navigate" class='content' hover-class='none' app-id="wx8abaf00ee8c3202e" extra-data="{{extraData}}" version="release">
+        <image src='/image/help.png' class='png' mode='aspectFit'></image>
+        <text class='text-grey'>帮助与反馈</text>
+      </navigator>
+    </view>
+  </view>
+</view>

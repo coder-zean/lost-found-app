@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "广州校区",
+  "enablePullDownRefresh":true,
+  "onReachBottomDistance": 45,
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#f37b1d"
+}

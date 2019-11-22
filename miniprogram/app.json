@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/found/found",
+    "pages/search/search",
+    "pages/post/post",
+    "pages/lost/lost",
+    "pages/person/person",
+    "pages/more/more",
+    "pages/usermes/usermes",
+    "pages/collection/collection",
+    "pages/aboutUs/aboutUs",
+    "pages/myPost/myPost",
+    "pages/searchResult/searchResult",
+    "pages/updataPost/updataPost",
+    "pages/writeMes/writeMes",
+    "pages/qrMore/qrMore",
+    "pages/administrator/administrator"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f37b1d",
+    "navigationBarTitleText": "寻物启事",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "white",
+    "selectedColor": "#f37b1d",
+    "color": "#e6e6e6",
+    "list": [
+      {
+        "pagePath": "pages/found/found",
+        "text": "广州",
+        "iconPath": "image/gz.png",
+        "selectedIconPath": "image/gz-active.png"
+      },
+      {
+        "pagePath": "pages/lost/lost",
+        "text": "肇庆",
+        "iconPath": "image/zq.png",
+        "selectedIconPath": "image/zq-active.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "image/search.png",
+        "selectedIconPath": "image/search-active.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "image/person.png",
+        "selectedIconPath": "image/person-active.png"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx8abaf00ee8c3202e"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

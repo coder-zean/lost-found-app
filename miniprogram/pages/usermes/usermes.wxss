@@ -1,0 +1,63 @@
+/* pages/usermes/usermes.wxss */
+page{
+  background-color: rgb(244, 244, 244);
+}
+
+.white-block{
+  margin-top: 40rpx;
+  background-color: white;
+}
+
+.mes{
+  display: flex;
+  justify-content:space-between;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.mes-bottom{
+  border-bottom: 1px solid #EDEFEE;
+}
+
+.mes-name{
+  font-size: 35rpx;
+}
+
+.mes-value{
+  font-size: 30rpx;
+  color: #C7C8CA;
+  text-align: center;
+  vertical-align:middle;
+}
+
+.statement{
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.statement-value{
+  padding-top: 10rpx;
+  padding-left: 15rpx;
+  font-size: 30rpx;
+  color: #C7C8CA;
+}
+
+.statement-value text{
+  color: 	IndianRed;
+}
+
+.but-mar{
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.gre-but{
+  background-color: #f37b1d;
+  color: white;
+}

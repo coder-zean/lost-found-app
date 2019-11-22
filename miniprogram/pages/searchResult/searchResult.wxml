@@ -1,0 +1,24 @@
+<!--pages/searchResult/searchResult.wxml-->
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
+<view class="cu-card article" wx:if="{{isNoData==false}}">
+  <view wx:for="{{thingList}}" wx:key class="cu-item shadow" bindtap='navToMore' data-id='{{item.id}}'>
+    <view class="title">{{item.title}}</view>
+    <view class="content">
+      <image wx:if="{{item.imgSrc1!=null}}" src="{{item.imgSrc1}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view class='text-content' style='word-break:break-all'>{{item.content}}</view>
+        <view>
+        </view>
+      </view>
+    </view>
+    <view class='l-time'>{{dateUtil.dateFormat(item.createTime)}}</view>
+  </view>
+  <view class='push' wx:if="{{push}}">上拉加载更多</view>
+  <view class='push' wx:if="{{!push}}">已无更多信息</view>
+</view>
+<view wx:if="{{isNoData==true}}" class="search">
+  <view>
+    <image src="../../image/noMore.png" style="width:320rpx;height:300rpx;"></image>
+  </view>
+
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "肇庆校区",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#f37b1d",
+  "onReachBottomDistance": 45
+}

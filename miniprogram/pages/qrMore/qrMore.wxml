@@ -1,0 +1,2 @@
+<!--pages/qrMore/qrMore.wxml-->
+<include src="../more/more.wxml" />

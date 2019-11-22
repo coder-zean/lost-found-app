@@ -1,0 +1,97 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__bd">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{showTopMes}}</view>
+      <form bindsubmit="formSubmit">
+        <view class="weui-cells__title">姓名与学号</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">姓名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input wx:if="{{username==nullString}}" class="weui-input" placeholder="请输入姓名" name="username"/>
+                    <input wx:else class="weui-input" placeholder="请输入姓名" name="username" value='{{username}}'/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">学号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input wx:if="{{studentNumber==nullString}}" class="weui-input" placeholder="请输入学号" name="studentNumber"/>
+                    <input wx:else class="weui-input" placeholder="请输入学号" name="studentNumber" value='{{studentNumber}}'/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__tips"></view>
+
+
+        <view class="weui-cells__title">联系信息</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">手机</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input wx:if="{{phone==nullString}}" class="weui-input" placeholder="请输入手机" name="phone"/>
+                    <input wx:else class="weui-input" placeholder="请输入手机" name="phone" value='{{phone}}'/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">微信号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input wx:if="{{weChat==nullString}}" class="weui-input" placeholder="请输入微信号" name="weChat"/>
+                    <input wx:else class="weui-input" placeholder="请输入微信号" name="weChat" value='{{weChat}}'/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">qq</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input wx:if="{{qq==nullString}}" class="weui-input" placeholder="请输入qq" name="qq"/>
+                    <input wx:else class="weui-input" placeholder="请输入qq" name="qq" value='{{qq}}'/>
+                </view>
+            </view>
+        </view>      
+        
+        <view class="weui-cells__title">院别信息</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">学院</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
+                        <view class="weui-select weui-select_in-select-after">{{countries[countryIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">年级</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input wx:if="{{grade==nullString}}" class="weui-input" placeholder="请输入年级，例：17级" name="grade"/>
+                    <input wx:else class="weui-input" placeholder="请输入年级，例：17级" name="grade" value='{{grade}}'/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">班级</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input wx:if="{{studentClass==nullString}}" class="weui-input" placeholder="请输入班级" name="studentClass"/>
+                    <input wx:else class="weui-input" placeholder="请输入班级" name="studentClass" value='{{studentClass}}'/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__tips">填写班级时，请带上系别，例：精算4班</view>
+        <view class="weui-btn-area">
+            <button class="weui-btn gre-but"  formType="submit">确定</button>
+        </view>
+        </form>
+    </view>
+</view>

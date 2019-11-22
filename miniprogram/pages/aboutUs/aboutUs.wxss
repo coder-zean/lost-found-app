@@ -1,0 +1,50 @@
+/* pages/aboutUs/aboutUs.wxss */
+
+.img{
+  margin: 70rpx auto;
+  text-align: center;
+}
+
+.img image{
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.nametext{
+  text-align: center;
+  font-size: 40rpx;
+}
+
+.versiontext{
+  text-align: center;
+  font-size: 33rpx;
+  color: rgb(166, 166, 166);
+}
+
+.content{
+  padding-top: 30rpx;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  font-size: 30rpx;
+  color: rgb(166, 166, 166);
+}
+
+.but{
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  color: #EB602E;
+  border: 1rpx solid #EB602E;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 0px;
+  height:80rpx;
+  width: 180rpx;
+  line-height: 30rpx;
+  display: table;
+  
+}
+
+.but text{
+  vertical-align:middle;
+  display: table-cell;
+}

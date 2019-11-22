@@ -1,0 +1,12 @@
+/* pages/searchResult/searchResult.wxss */
+@import "../found/found.wxss";
+
+.search{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin-top:340rpx; 
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+}
